@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Minha Coleção de Jogos - Interesses</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            
+            align-items: flex-start; 
+            justify-content: center;
+            color: white;
+            padding: 40px 8%; 
+        }
+
+        header {
+            text-align: left;
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+
+        header h1 {
+            color: #38bdf8;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .botao-trigger {
+            background-color: #1e293b;
+            border: 2px solid #38bdf8;
+            border-radius: 12px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .botao-trigger:hover {
+            transform: translateY(-8px);
+            border-color: #f472b6;
+            box-shadow: 0 10px 30px rgba(244, 114, 182, 0.2);
+        }
+
+        .botao-trigger img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 2px solid #38bdf8;
+        }
+
+        .botao-trigger span {
+            padding: 15px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #38bdf8;
+        }
+
+        input[type="checkbox"] { display: none; }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid #f472b6;
+            text-align: center;
+            max-width: 450px;
+            animation: zoomIn 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        }
+
+        .modal-content h2 { color: #f472b6; margin-bottom: 15px; font-size: 2rem; }
+        .modal-content p { color: #cbd5e1; margin-bottom: 30px; line-height: 1.7; font-size: 1.1rem; }
+
+        .botao-fechar {
+            background: #f472b6;
+            color: white;
+            padding: 12px 35px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .botao-fechar:hover { background: #db2777; }
+
+        #check-stardew:checked ~ .modal-stardew,
+        #check-pubg:checked ~ .modal-pubg,
+        #check-minecraft:checked ~ .modal-minecraft,
+        #check-daylight:checked ~ .modal-daylight,
+        #check-terraria:checked ~ .modal-terraria,
+        #check-brawl:checked ~ .modal-brawl {
+            display: flex;
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @media (max-width: 900px) {
+            .grid-container { grid-template-columns: repeat(2, 1fr); }
+            body { padding: 40px 5%; }
+        }
+
+        @media (max-width: 500px) {
+            .grid-container { grid-template-columns: 1fr; }
+            header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bem-vindo à Minha Coleção</h1>
+        <p>Aqui estão meus jogos preferidos da minha biblioteca, incluindo os jogos de sistema Android que jogo no tempo livre com amigos e primos.</p>
+    </header>
+
+    <input type="checkbox" id="check-stardew">
+    <input type="checkbox" id="check-pubg">
+    <input type="checkbox" id="check-minecraft">
+    <input type="checkbox" id="check-daylight">
+    <input type="checkbox" id="check-terraria">
+    <input type="checkbox" id="check-brawl">
+
+    <div class="grid-container">
+        <label for="check-stardew" class="botao-trigger">
+            <img src="https://data.tooliphone.net/iskin/themes/35888/19485/preview-256.png?cache=1606483831" alt="Stardew">
+            <span>Stardew Valley</span>
+        </label>
+
+        <label for="check-pubg" class="botao-trigger">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoba1RPe-dSwqIDw4O5Wskz03p8vJNVn2LZA&s" alt="Pubg">
+            <span>Pubg Mobile</span>
+        </label>
+
+        <label for="check-minecraft" class="botao-trigger">
+            <img src="https://thumbs.dreamstime.com/b/minecraft-logo-online-game-dirt-block-illustrations-concept-design-isolated-186775550.jpg" alt="Minecraft">
+            <span>Minecraft</span>
+        </label>
+
+        <label for="check-daylight" class="botao-trigger">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCsmUDJYnuKm4bQ47oWzELKU2Ydc6HaF_QaQ&s" alt="Dyinglight">
+            <span> Dyinglight</span>
+        </label>
+
+        <label for="check-terraria" class="botao-trigger">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYU20-4HKgFMyzRscgbS0dDGzNK8iwmQgVtA&s" alt="Terraria">
+            <span>Terraria</span>
+        </label>
+
+        <label for="check-brawl" class="botao-trigger">
+            <img src="https://makerworld.bblmw.com/makerworld/model/USd39ec21b661879/design/2025-03-04_654e2d9e35aab.jpeg?x-oss-process=image/resize,w_1000/format,webp" alt="Brawl Stars">
+            <span>Brawl Stars</span>
+        </label>
+    </div>
+
+    <div class="modal-overlay modal-stardew">
+        <div class="modal-content">
+            <h2>Stardew Valley</h2>
+            <p>É um jogo que vc cuida da fazenda de seu falecido vô e sua obrigação é cuidar e fazer amizades com os personagens. Mais na minha opnião é um jogo com varias maneiras de viver pois tem skills para upar e o famoso farm de recursos, é um jogo 2D puxado pro RPG de um fazendeiro.</p>
+            <label for="check-stardew" class="botao-fechar">Fechar</label>
+        </div>
+    </div>
+
+    <div class="modal-overlay modal-pubg">
+        <div class="modal-content">
+            <h2>Pubg Mobile</h2>
+            <p>É um Battle Royale intenso que voçê pule em uma ilha para encontrar equipamentos e lute para ser o último sobrevivente entre 100 jogadores, essa tematica de voçê ter que sobreviver usando estrategias e recursos sempre me chamou atenção, pois ter que usar a inteligencia para derrubar ou abater os inimigos é otimo.</p>
+            <label for="check-pubg" class="botao-fechar">Fechar</label>
+        </div>
+    </div>
+
+    <div class="modal-overlay modal-minecraft">
+        <div class="modal-content">
+            <h2>Minecraft</h2>
+            <p>Um jogo simples que pode ser resumido em uma frase "Seja Criativo e Explore Infinitas Possibilidades", o jogo todo quadrado virou um marco na vida de todos com criatividade se pode fazer o que quiser e quando quiser o jogo traz varios caminhos para se sobreviver e construir a vontade.</p>
+            <label for="check-minecraft" class="botao-fechar">Fechar</label>
+        </div>
+    </div>
+
+    <div class="modal-overlay modal-daylight">
+        <div class="modal-content">
+            <h2>Dyinglight</h2>
+            <p>Um jogo que se passa em um mundo pós-apocalíptico dentro de um território e o personagem veio para pegar uns arquivos confidênciais para o governo, logo apos isso voçê é forcado a ajudar uma organização para poder chegar em seu objetivo, um jogo focado em fazer parkour pela cidade e fugir dos zumbis.</p>
+            <label for="check-daylight" class="botao-fechar">Fechar</label>
+        </div>
+    </div>
+
+    <div class="modal-overlay modal-terraria">
+        <div class="modal-content">
+            <h2>Terraria</h2>
+            <p>Cave, lute, explore e construa em um mundo 2D repleto de aventuras, itens raros e chefes desafiadores, Jogo mais focado em craft de itens para ficar mais forte para enfrentar inimigos mais poderosos além de ter que farmar monstros para chegar a esse objetivo de ser o mais forte.</p>
+            <label for="check-terraria" class="botao-fechar">Fechar</label>
+        </div>
+    </div>
+
+    <div class="modal-overlay modal-brawl">
+        <div class="modal-content">
+            <h2>Brawl Stars</h2>
+            <p>Partidas multiplayer rápidas e insanas escolha seu Brawler e mostre quem manda na arena em diversos modos de jogo, Jogo Pay-to-Win onde personagem com poderes unicos entrando nas arenas e vc ter que ser o mais forte ou inteligente usando os companheiros de equipe ao seu favor.</p>
+            <label for="check-brawl" class="botao-fechar">Fechar</label>
+        </div>
+    </div>
+
+</body>
+</html>
