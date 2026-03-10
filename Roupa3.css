@@ -61,7 +61,7 @@ nav ul {
 }
 
 nav a {
-    color: #0800ea;
+    color: white;
     text-decoration: none;
     font-weight: bold;
 }
@@ -124,4 +124,5 @@ footer {
     padding-top: 20px;
     font-size: 0.9em;
     color: #777;
+
 }
