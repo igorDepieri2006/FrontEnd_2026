@@ -5,7 +5,7 @@ function mostrarTabela() {
         
         const imagem = document.createElement('img');
         
-        imagem.src = 'img/Tabela_Jogos.png'; 
+        imagem.src = 'Tabela_Jogos.png'; 
         imagem.alt = 'Tabela de Jogos da Copa 2026';
         
         imagem.style.maxWidth = '100%';
