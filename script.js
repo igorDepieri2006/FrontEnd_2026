@@ -9,7 +9,7 @@ function revelar() {
 
    
     if (imagem) {
-        imagem.src = 'img/_vinicius_junior.png';
+        imagem.src = '_vinicius_junior.png';
         imagem.alt = 'Vinícius Júnior';
     }
 
