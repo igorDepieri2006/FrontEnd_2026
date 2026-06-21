@@ -6,7 +6,7 @@ function revelar(){
     const spanPosicao = document.querySelector('[id^="Posição"]'); 
 
     if (imagem){
-        imagem.src='_vinicius_junior.png'; 
+        imagem.src='Prova_feita_3/_vinicius_junior.png'; 
         imagem.alt='Vinícius Júnior';
     }
     if (spanNome) {
