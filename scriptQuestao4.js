@@ -4,11 +4,11 @@ function revelar() {
     const spanNome = document.getElementById('Nome');
     const spanRank = document.getElementById('Rank');
     const spanData = document.getElementById('Data_Nas');
-    const spanAltura = document.getElementById('Alutra'); 
-    const spanPosicao = document.getElementById('Posição '); 
+    const spanAltura = document.getElementById('Altura'); 
+    const spanPosicao = document.getElementById('Posição'); 
 
    
-    if (imagem) {
+    if (imagem){
         imagem.src = '_vinicius_junior.png';
         imagem.alt = 'Vinícius Júnior';
     }
